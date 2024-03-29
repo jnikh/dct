@@ -1,0 +1,326 @@
+Practical 1 
+Configuring ESXi Hosts                                                                                     Configuring ESXi Hosts
+
+Step 1: Insert the VMware ESXi 7 installation disk and start Computer. Then, VMware ESXi 7 Installer starts and reads files from the disk.
+
+Step 2: Push [Enter] key to proceed to the next
+
+Step 3: Push [F11] key to accept license agreement 
+ 
+Step 4: Select a disk you like to install VMware ESXi 7 and Push [Enter] key to proceed to the next
+
+Step 5: Select a keyboard layout you are using and Push [Enter] key to proceed to the next
+ 
+Step 6: Set password for root user account and Push [Enter] key to proceed to the next. 
+
+Step 7: Confirm selections and Push [F11] key to begin installation
+ 
+Step 8: After finishing installation, Push [Enter] key to restart computer 
+ 
+Step 9 : After restarting computer, VMware ESXi 7 default console window is shown.
+Verify installation to login with root user account. Push [F2] key.
+ 
+Step 10: Input password for root user account you set during the installation
+
+Step 11: If successfully logined, System configuration windows is shown like follows.
+To logout from the System, Push [Esc] key.
+That's OK, your VMware ESXi 7 installation has completed
+ 
+(ADDED STEPS FROM HERE)
+Step 2 - Configure password
+ 
+Step 3 - Configure management network (imp step) and press enter
+
+Step 4 - Multiple network Adapter to avoid redundancy(check status)
+ 
+Step 5- Click ipv4 Configuration (hit space to select 3rd option) > Change ip v4 address 10.0.0.156 to 10.0.0.21
+ 
+Step 6- Dns Configuration > hostname > change to nlb-esxi-01 > Press enter
+ 
+Step 7- Press esc and press “y” to save changes
+
+Step 8- restart network management(default)
+
+Step 9- Network restore options(default)
+
+Step 10- Configure keyboard & troubleshoot options (default)
+
+Step 11 -View System logs (default)
+
+Step 12 - view support information (default)
+
+Step 13 - Want to reset? Click on Reset all Configuration
+-----------------------------------------------------------------------------------------
+
+Practical 2                                                                                        
+Deploying & Configuring a Virtual Machine
+
+Step 1: Open VMware Workstation > Click on Create a New > Next > Finish 
+ 
+Step 2:  Choose Disc Image File > Next 
+ 
+Step 2: Give Virtual Machine Name > Next > Next
+
+Step 3: Power On ESXI Machine > it Take some time then click on continue 
+
+Step 4: click on Continue > Enter password for root 
+ 
+Step 5: It take some time then click on Continue
+ 
+Starting Installation process
+ 
+Reboot
+ 
+Output
+ 
+--------------------------------------------------------------------------------------
+
+Practical 3:
+Working with vCenter Server
+
+Step 1: Download Vcsa-ui installer and run the installer in it
+ 
+Step 2: Click on “Install” from the below options
+ 
+Step 3: Click on next > Click on “I agree” > next
+
+Step 4: Enter your ESXi host > HTTPS ports > username >Password > Click on next > yes
+ 
+Step 5: Define vm name> create root password > Confirm root password
+ 
+Step 6: Select Deployment size > select datastore > configure network setting > Finish
+
+Step 7: Define application configuration > SSO configuration > Configure CEIP > Finish 
+
+Step 8: After Successfully setup > Click on the link and launch vSphere web client > (Install required flash)
+
+Step 9: enter username and password > Launch > Click on new Datacentre > name it > ok
+
+Step 10: Add host > next > username and password > next > select license >lockdown mode > vm location > ready
+----------------------------------------------------------------------------------------------------------------------
+  
+Practical 4
+Navigating the vSphere Clients. 
+
+The VMware vSphere Client is a web-based application that connects to the vCenter Server so IT administrators can manage installations and handle inventory objects in a vSphere deployment. vSphere Client is a part of VMware’s comprehensive product line.
+As an application, VMware vSphere Client enables the management of a vSphere installation so IT administrators can access key functions of vSphere without needing access to a vSphere server directly. The vSphere Client presents a graphical user interface (GUI) with an object navigator, the main workspace, as well as the tasks and alarms panel. Through this GUI, vSphere administrators can manage and supervise the objects listed in a virtualized data centre.
+
+1.VSPHERE WEB CLIENT
+REQUIREMENTS:
+0-1 domain controller for authentication
+Storage server to provide storage
+
+Step 1: Install the adobe flash which is prerequisites for this client to work.
+
+Step 2: Sign on to the vmware single using the  username and password
+Click on login (using nic account to login).
+
+Step 3: On the Home Screen Check on
+Monitor to monitor issues,System logs and sessions.
+Configure to configure settings
+Permissions –defined permissions for each task
+VMS- Different Virtual machines
+
+Step 4: Click on NMBD datacentre check for all the datastorage devices available.
+
+Step 5: Click on your existing virtual machine now click on add new virtual machine power on the virtual machine and check on the status bar for results.
+Step 6: NOW SWITCHING TO THE NEW VSPHERE CLIENT
+It is named as vSphere client HTML
+It is created by VMWare itself and do not depend on any third-party tools to be installed for working with it.
+
+Step 7:Now open the link for vSphere client html on the new tab
+Login using your username and password
+On this interface we have monitor to monitor issues, sessions, logs etc.
+
+Step 8:Click on the existing virtual machine select maintenance mode and click on exit maintenance mode.
+
+Step 9:Click on the ISCSI-VMFS-Datastore1 and select browse files
+Check for all the files.
+---------------------------------------------------------------------------------------------------------------------
+
+Practical 5:
+Creating Folders in vCenter Server Appliance
+
+Step 1:Go to vSphere Web Client
+
+Step 2:Shutdown the guest OS (NLB-PC-01)
+
+Step 3:To create a folder, right click on NLBDatacenter -> New Folder -> New Host and Cluster Folder.
+
+Step 4:Enter folder name as “Main Office” -> ok
+
+Step 5:Now empty “Main Office” folder will be created on the left panel.
+
+Step 6:Drag and drop “nlb-esxi-01.nlblab.com” host in the “Main Office” folder.
+
+Step 7:Create another folder, right click on NLBDatacenter -> New Folder -> New Host and Cluster Folder.
+
+Step 8:Enter folder name as “Back Office” -> ok
+
+Step 9:Drag and drop the second “nlb-esxi-02.nlblab.com” host in the “Back Office” folder.
+
+Step 10:Next go to VM’s and Template’s folder, click on “summary”.
+
+Step 11:On the left panel, right click on NLBDatacenter -> New Folder -> New VM and Template Folder.
+
+Step 12:Enter folder name as “Generalized Template” -> ok
+
+Step 13:We can store different templates in this folder.
+
+Step 14:Right click on NLBDatacenter -> New Folder -> New VM and Template Folder.
+
+Step 15:Enter folder name as “Main Office” -> ok
+
+Step 16:Move vm “NLB-PC-01” in main office folder.
+
+Step 17:If you click on the main office folder, it will give you the summary of what’s inside that folder.
+
+
+-------------------------------------------------------------------------------------------------------------------------
+Practical 6                                                                                         
+Using Standard Switches
+
+Step 1: Power on VMware > Power on ESXi > copy https://www.lantmateriet.se/en/geodata/gps-geodesi-och-swepos/gps-and-	satellite-positioning/methods-for-gnss-measurement/absolute-and-relative-positioning/#anchor-0the IP address which 	show on screen
+
+Step 2: Open vSphere Client then enter IP address that you copy from ESXi
+            Enter username & password then click on Login
+
+Step 3: Click on ESXi servers IP
+	On the Right Hand side we will find configuration tab under configuration tab select Networking > Click on add 	Networking > Next
+ 
+Step 4: Create a two network BMS, IT
+	On the network label give your network name > click next > Ok
+ 
+ 
+	Here are  we create IT & BMS Switches
+ 
+Step 5: Now assign system to particular Machine for that first we have to Create a Virtual Machine > Click on IP address 	which present on Right hand side> New Virtual Machine > Click Next > Give Name to machine > create
+ 
+Step 6: Right hand side click on any one virtual Machine> edit Setting > Network Adapter > from drop down select any on 	network. 
+ 
+	Click on next > Next
+   
+
+Step 7: Finish 
+ 
+Repeat same steps for Other virtual Machine 
+ 
+
+OUTPUT
+ 
+-----------------------------------------------------------------------------------------------------------------------------
+
+Practical 7                                                                                         
+Accessing ISCSI Storage.
+
+iSCSI stands for "Internet Small Computer System Interface." It's a protocol used for linking data storage facilities over a network, typically Ethernet. iSCSI enables the transmission of SCSI commands over IP networks
+Initiator: The initiator is the client device that initiates the request for data from the storage device. It could be a server, desktop, or any other computing device that requires access to the storage.
+Target: The target is the storage device that holds the data being accessed. It could be a disk array, a tape library, or even a single hard drive. The target responds to the requests made by the initiator.
+
+Step 1: Open vSphere Client
+ 
+Step 2:  Click configuration ->  Storage Adaptor add ISCSI  Network ConfigurationAddDynamic DiscoveryAdd (Enter VM’s Name)
+ 
+Step 3: Click On Add > OK > OK
+
+Step 4:  Right Click on ISCSI Storage adapter name > Property 
+ 
+Step 5: Network Configuration > Add > OK
+ 
+Step 6:  Click on Dynamic Discovery > Add > for ISCSI Server choose your Virtual Machine Name > OK 
+ 
+Here We add successfully ISCSI Target
+ 
+Step 7: For Checking Advance Setting > Click on Target Name > The Click on Advance
+ 
+Output 
+ ---------------------------------------------------------------------------------------------------------------------
+
+Practical 8:
+Using Template and Clones in vSphere
+Templates are used as they are handy tool in deploying new VM saving valuable time and efforts 
+Steps:
+•	Creating the Template
+
+1.	 Go to VMs And Templates on the left panel. Here you can create folders including “New VM and Template folder”
+
+2.	R-click onto the virtual machine previously created > Template > Convert to Template > Yes (The VM becomes a template which you can use to add other VMs)
+
+3.	Move the created Template to Templates folder(create one if not created)
+
+4.	R-click the Template and Rename it as per desired
+
+•	Creating Customization File
+
+5.	R-click the Template> Policies and Profiles. Here you will have the option to Create New Customization File… click on the icon
+
+6.	In Target VM Operation System : Windows, In the Name field add name of yoru template > Next
+
+7.	Provide Name & Organization in the respective field > Next
+
+8.	Select the “Enter a name in the Clone/Deploy wizard” > Next
+
+9.	Enter the Product Key or you can leave it blank > Next
+
+10.	Set the Administration Password> Next
+
+11.	Specify the TimeZone for the VM > Next
+
+12.	Enter commands to run when user logs on first  time> Next
+
+13.	Configure Network settings > Next
+
+14.	Set Work Group or Domain > Next
+
+15. 	Set Operating System option (Tick the Generate New Security ID dialog box) > Next
+
+16. 	The final window will show all the settings> Finish
+
+•	Deploying the new Virtual Machine using template and customization file
+
+17. 	R-click the template from left panel> New VM from this Template…
+
+18.	Name the VM and select its location folder> Next
+      	Select a compute resource> Next
+      	Select a Storage> Next
+      	Select clone options> Next
+      	Customize guest OS> Next
+      	Set User Settings> Next
+	Final window will display all the settings> Finish
+
+19. 	After a few time, templates will be cloned and the new VM will be created 
+----------------------------------------------------------------------------------------------------------------------------
+
+Practical: CISCO 
+Deploying and Configuring a Virtual Machine
+
+Step 1: open the Cisco packet tracer
+
+Step 2: Take two pcs (clients) and one switch
+
+Step 3: Switch is use to create LAN and it’s use to interconnect pcs on LAN
+
+Step 4: Configure PC0 with Ip 192.168.1.101 and PC1 with 192.168.1.100 and connect both the PCs with switch
+
+Step 5: Now both the PCs are on the same LAN and they talk to each other
+
+Step 6:Go on PC0 and open command prompt Ping the other PCs ip on this PC
+
+Step 7: Click on switch then open CLI and type following command
+ 
+Step 8: Click on switch then open CLI and type following commands 
+
+Step 9: This will show all VLANs here VLAN1 is default VLAN when you cannot delete it 
+
+Step 10 :Now we will create additional VLANs By following commands 
+Here we we will create VLAN50 with name TYITstudent
+Now this VLAN is active 
+
+Step 11: Now we will configure this VLAN
+In interface configuration we will assign switch port mode axis to this VLAN.
+Now we VLAN 50 has port10 assign to it.
+ 
+
+ 
+
+
